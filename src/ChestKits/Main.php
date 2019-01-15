@@ -19,6 +19,7 @@ use pocketmine\plugin\PluginBase;
 use pocketmine\nbt\{NBT, tag\CompoundTag, tag\IntTag, tag\ListTag, tag\StringTag};
 
 use pocketmine\tile\{Tile, Chest};
+use pocketmine\item\enchantments\EnchantmentInstance;
 
 use pocketmine\utils\TextFormat as C;
 
@@ -31,7 +32,7 @@ class Main extends PluginBase {
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool {
 
         if(!$sender instanceof Player){
-            $sender->sendMessage(TextFormat::RED . "Command must be used in-game.");
+            $sender->sendMessage(C::RED . "Command must be used in-game.");
             return true;
         }
         switch($command){
@@ -59,7 +60,8 @@ class Main extends PluginBase {
                 $nbt = new CompoundTag("BlockEntityTag", [new ListTag("Items", [$helmet->nbtSerialize(0), $chestplate->nbtSerialize(1), $leggings->nbtSerialize(2), $boots->nbtSerialize(3), $sword->nbtSerialize(4), $pickaxe->nbtSerialize(5), $axe->nbtSerialize(6)])]);
                 $chest = ItemFactory::get(Block::CHEST, 0, 1);
                 $chest->setNamedTagEntry($nbt);
-                $chest->setCustomName("Kit");
+                $chest->setCustomName("§b§lStarter §3Kit");
+                $chest->setLore(["§aPlace / right click on the ground to claim the kit!"]);
                 $sender->getInventory()->addItem($chest);
                 break;
         }
