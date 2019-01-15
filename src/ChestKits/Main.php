@@ -35,17 +35,25 @@ class Main extends PluginBase {
             return true;
         }
         switch($command){
-            case "kit":
-                $helmet = Item::get(306, 0, 1);
+            case "starter":
+                $helmet = Item::get(302, 0, 1);
+                $helmet->addEnchantment(new EnchantmentInstance("protection", 2));
                 $helmet->setCustomName("Kit Helmet");
-                $chestplate = Item::get(307, 0, 1);
+                $chestplate = Item::get(303, 0, 1);
+                $chestplate->addEnchantment(new EnchantmentInstance("protection", 2));
                 $chestplate->setCustomName("Kit Chestplate");
-                $leggings = Item::get(308, 0, 1);
+                $leggings = Item::get(304, 0, 1);
+                $leggings->addEnchantment(new EnchantmentInstance("protection", 2));
                 $leggings->setCustomName("Kit Leggings");
                 $boots = Item::get(309, 0, 1);
+                $boots->addEnchantment(new EnchantmentInstance("protection", 2));
                 $boots->setCustomName("Kit Boots");
-                $sword = Item::get(267, 0, 1);
+                $sword = Item::get(272, 0, 1);
+                $sword->addEnchantment(new EnchantmentInstance("sharpness", 5));
                 $sword->setCustomName("Kit Sword");
+                $pickaxe = Item::get(274, 0, 1);
+                $pickaxe->->addEnchantment(new EnchantmentInstance("efficiency", 4));
+                $pickaxe->setCustomName("Kit Pickaxe");
                 $nbt = new CompoundTag("BlockEntityTag", [new ListTag("Items", [$helmet->nbtSerialize(0), $chestplate->nbtSerialize(1), $leggings->nbtSerialize(2), $boots->nbtSerialize(3), $sword->nbtSerialize(4)])]);
                 $chest = ItemFactory::get(Block::CHEST, 0, 1);
                 $chest->setNamedTagEntry($nbt);
