@@ -1,10 +1,5 @@
-name: ChestKits
-description: An example on how to make chest kits
-
+name: OPSkyBlockKits
+description: OP SkyBlock ChestKit for ZectorPE
 main: ChestKits\Main
 version: 1.0
-api: [3.0.0-ALPHA7, 3.0.0-ALPHA8, 3.0.0-ALPHA9, 3.0.0-ALPHA10]
-
-commands
-  kit
-    description: Get a chest
+api: [3.0.0]
