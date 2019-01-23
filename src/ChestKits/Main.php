@@ -47,7 +47,7 @@ class Main extends PluginBase {
                 $sword = Item::get(267, 0, 1);
                 $sword->setCustomName("Kit Sword");
                 $nbt = new CompoundTag("BlockEntityTag", [new ListTag("Items", [$helmet->nbtSerialize(0), $chestplate->nbtSerialize(1), $leggings->nbtSerialize(2), $boots->nbtSerialize(3), $sword->nbtSerialize(4)])]);
-                $chest = ItemFactory::get(Block::CHEST, 0, 1);
+                $chest = ItemFactory::get(Block::CHEST, 10, 1);
                 $chest->setNamedTagEntry($nbt);
                 $chest->setCustomName("Kit");
                 $sender->getInventory()->addItem($chest);
